@@ -1,7 +1,8 @@
 require 'rake/testtask'
-
-Rake::TestTask.new do |t|
-  t.libs.push "lib"
-  t.test_files = FileList['test/*_test.rb']
-  t.verbose = true
+  
+Rake::TestTask.new do |task|
+  task.libs << %w(test lib)
+  task.pattern = 'test/*_test.rb'
 end
+  
+task :default => :test
