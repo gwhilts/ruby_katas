@@ -16,4 +16,12 @@ class AnangramsTest < MiniTest::Test
     Anagrams.add_words %w{ cat ochre art tar act dog rat chore god tam mat foo }
     assert Anagrams.dict.keys.count == 6
   end
+
+  def test_it_finds_anagrams
+    # Given the words %w{ cat ochre art tar act dog rat chore god tam mat foo },
+    # when asked to find anangarams for "rat", it should find ["art", "rat", "tar"]
+    Anagrams.add_words %w{ cat ochre art tar act dog rat chore god tam mat foo }
+    puts Anagrams.find_for("rat")
+    assert Anagrams.find_for("rat") == ["art", "rat", "tar"]
+  end
 end
