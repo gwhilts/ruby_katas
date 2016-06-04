@@ -11,7 +11,7 @@ class Anagrams
     words.each do |word|
       key = key_for(word)
       @dict[key] ||= Set.new
-      @dict[key] << word
+      @dict[key] << word.strip
     end
   end
 
@@ -22,7 +22,7 @@ class Anagrams
   private
 
   def key_for(word)
-    word.downcase.chars.sort.join
+    word.downcase.gsub(/[^a-z]/, '').chars.sort.join
   end
 
 end
