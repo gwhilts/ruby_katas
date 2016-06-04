@@ -10,7 +10,7 @@ class Anagrams
   def add_words(words)
     words.each do |word|
       key = key_for(word)
-      @dict[key] ||= []
+      @dict[key] ||= Set.new
       @dict[key] << word
     end
   end
