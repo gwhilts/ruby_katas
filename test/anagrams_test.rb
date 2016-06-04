@@ -13,14 +13,14 @@ class AnangramsTest < MiniTest::Test
     #   "dgo"   => ["dog", "god"],
     #   "foo"   => ["foo"]
     # }
-    Anagrams.add_words %w{ cat ochre art tar act dog rat chore god tam mat foo }
-    assert_equal Anagrams.dict.keys.count, 6
+    ags = Anagrams.new %w{ cat ochre art tar act dog rat chore god tam mat foo }
+    assert_equal ags.dict.keys.count, 6
   end
 
   def test_it_finds_anagrams
     # Given the words %w{ cat ochre art tar act dog rat chore god tam mat foo },
     # when asked to find anangarams for "rat", it should find ["art", "rat", "tar"]
-    Anagrams.add_words %w{ cat ochre art tar act dog rat chore god tam mat foo }
-    assert_equal Anagrams.find_for("rat"), ["art", "rat", "tar"]
+    ags = Anagrams.new %w{ cat ochre art tar act dog rat chore god tam mat foo }
+    assert_equal ags.find_for("rat"), ["art", "rat", "tar"]
   end
 end
