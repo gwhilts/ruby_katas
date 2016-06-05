@@ -17,6 +17,7 @@ class FibTest < MiniTest::Test
     # limit = 200
     # 2 + 8 + 34 + 144 = 188
     it "adds even Fibacci numbers" do
+      Fib.sum_of_evens_to(8).must_equal 10
       Fib.sum_of_evens_to(100).must_equal 44
       Fib.sum_of_evens_to(200).must_equal 188
     end
