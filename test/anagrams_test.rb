@@ -1,26 +1,24 @@
 require "test_helper"
 require "anagrams"
 
-class AnangramsTest < MiniTest::Test
-  def test_it_sorts_words_into_sets_of_anagrams
-    # Given the words %w{ cat ochre art tar act dog rat chore god tam mat foo }, 
-    # the dictionary should contain six sets anagrams:
-    # {
-    #   "act"   => ["act" "cat"],
-    #   "amt"   => ["mat", "tam"],
-    #   "art"   => ["art", "rat", "tar"],
-    #   "cehor" => ["chore", "ochre"],
-    #   "dgo"   => ["dog", "god"],
-    #   "foo"   => ["foo"]
-    # }
-    ags = Anagrams.new %w{ cat ochre art tar act dog rat chore god tam mat foo }
-    assert_equal ags.dict.keys.count, 6
+describe Anagrams do
+  let(:ags) { ags = Anagrams.new %w{ cat resume art tar act dog rat god résumé tam mat foo } }
+  
+  describe "#add_words" do
+    it "adds words to the anagram dictionary" do
+      ( ags.dict.keys.count ).must_equal 6
+      ags.add_words %w{ chore ochre atm }
+      ( ags.dict.keys.count ).must_equal 7
+    end
   end
 
-  def test_it_finds_anagrams
-    # Given the words %w{ cat ochre art tar act dog rat chore god tam mat foo },
-    # when asked to find anangarams for "rat", it should find ["art", "rat", "tar"]
-    ags = Anagrams.new %w{ cat ochre art tar act dog rat chore god tam mat foo }
-    assert_equal ags.find_for("rat"), ["art", "rat", "tar"]
+  describe "#find_for" do
+    it "finds anagaams for a given word" do
+      ( ags.find_for 'rat' ).must_equal ['art', 'rat', 'tar']
+    end
+
+    it "deals with accented characters" do
+      ( ags.find_for 'résumé' ).must_equal ['resume', 'résumé']
+    end
   end
 end

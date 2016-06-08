@@ -1,5 +1,4 @@
 class Anagrams
-
   attr_reader :dict
 
   def initialize(words=[])
@@ -22,7 +21,12 @@ class Anagrams
   private
 
   def key_for(word)
-    word.downcase.gsub(/[^a-z]/, '').chars.sort.join
+    word.downcase
+        .gsub(/[é|ë|ê|è]/, 'e')
+        .gsub(/ñ/, 'n')
+        .gsub(/[^a-z]/, '')
+        .chars.sort
+        .join
   end
 
 end
