@@ -55,3 +55,21 @@ Clock.say 6, 52
 
 Clock.say 12, 58
 => "It is one o'clock."
+```
+
+## Largest Prime Factor
+
+Exercise: Refine Fixnum to add a method that returns its largest prime factor.
+
+Examples: 
+
+```ruby
+using PrimeFactors
+
+10.largest_prime_factor
+=> 5
+
+161.largest_prime_factor
+=> 23
+```
+
