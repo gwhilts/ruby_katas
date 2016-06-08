@@ -1,30 +1,13 @@
 class RomanNumerals
-  ROMANS = {
-    1000 => 'M',
-    500  => 'D',
-    100  => 'C',
-    50   => 'L',
-    10   => 'X',
-    5    => 'V', 
-    1    => 'I'
-  }
-
-  ROMAN_SHORTS = {
-    'DCCCC' => 'CM',
-    'CCCC'  => 'CD',
-    'LXXXX' => 'XC',
-    'XXXX'  => 'XL',
-    'VIIII' => 'IX',
-    'IIII'  => 'IV'
-  }
+  ROMANS = { 1000 => 'M', 500 => 'D', 100 => 'C', 50 => 'L', 10 => 'X', 5 => 'V', 1 => 'I' }
+  ROMAN_SHORTS = { 'DCCCC' => 'CM', 'CCCC' => 'CD', 'LXXXX' => 'XC', 'XXXX' => 'XL', 'VIIII' => 'IX', 'IIII' => 'IV' }
 
   def romanize(arabic)
-    compact( build_up(arabic) )
+    compact( long_roman_for(arabic) ) # wish Ruby had a pipeline operator like Elixir :-)
   end
 
   private
-
-  def build_up(number)
+  def long_roman_for(number)
     roman = ''
     ROMANS.keys.reduce(number) do |num, key|
       reps, next_num = num.divmod key
@@ -39,5 +22,4 @@ class RomanNumerals
       big_roman.gsub( r_digits, ROMAN_SHORTS[r_digits] )
     end
   end
-
 end
