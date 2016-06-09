@@ -21,7 +21,7 @@ class Clock
       time = "#{INTERVALS[interval-1]} #{time}"
     end
 
-    return "It is #{ time }."
+    return "It's #{ time }."
   end
 
   private 
