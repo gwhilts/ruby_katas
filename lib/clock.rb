@@ -1,9 +1,12 @@
 class Clock
+  attr_accessor :about
 
   HOURS = %w{ one two three four five six seven eight nine ten eleven twelve }
   INTERVALS = [ 'five past', 'ten past', 'quarter past', 'twenty past', 'twenty five past', 'half past', 'twenty five to', 'twenty to', 'quarter to', 'ten to', 'five to' ]
 
   def self.say(hr, min)
+    about = min.remainder(5) == 0 ? '' : 'about '
+
     hr, interval = nearest_five(hr, min)
 
     if (interval > 6)
@@ -21,7 +24,7 @@ class Clock
       time = "#{INTERVALS[interval-1]} #{time}"
     end
 
-    return "It's #{ time }."
+    return "It's #{about}#{ time }."
   end
 
   private 
@@ -31,4 +34,5 @@ class Clock
     interval = (min + 2)/5
     [hr, interval]
   end
+
 end
