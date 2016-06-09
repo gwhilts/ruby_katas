@@ -22,8 +22,13 @@ class Anagrams
 
   def key_for(word)
     word.downcase
-        .gsub(/[é|ë|ê|è]/, 'e')
-        .gsub(/ñ/, 'n')
+        .gsub(/[à-å]/, 'a')
+        .gsub(/[è-ë]/, 'e')
+        .gsub(/[ì-ï]/, 'i')
+        .gsub(/[ò-ö]/, 'o')
+        .gsub(/[ù-ü]/, 'u')
+        .gsub(/ç/,     'c')
+        .gsub(/ñ/,     'n')
         .gsub(/[^a-z]/, '')
         .chars.sort
         .join
