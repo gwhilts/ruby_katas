@@ -1,11 +1,11 @@
 Just a place to iterate over some simple exercises, trying out different methods to solve them.
 
-* [Anagrams](./#anagrams)
-* [Fibonacci Sums](./#sum-of-even-fibonacci-numbers)
-* [Roman Numerals](./#roman-numerals)
-* [Word Clock](./#word-clock)
-* [Largest Prime Factor](./#largest-prime-factor)
-* [Palindrome Numbers](./#palindrome numbers)
+* [Anagrams](https://github.com/gwhilts/ruby_katas/#anagrams)
+* [Fibonacci Sums](https://github.com/gwhilts/ruby_katas/#sum-of-even-fibonacci-numbers)
+* [Roman Numerals](https://github.com/gwhilts/ruby_katas/#roman-numerals)
+* [Word Clock](https://github.com/gwhilts/ruby_katas/#word-clock)
+* [Largest Prime Factor](https://github.com/gwhilts/ruby_katas/#largest-prime-factor)
+* [Palindrome Numbers](https://github.com/gwhilts/ruby_katas/#palindrome numbers)
 
 ----
 
