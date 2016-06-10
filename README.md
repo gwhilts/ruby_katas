@@ -1,5 +1,14 @@
 Just a place to iterate over some simple exercises, trying out different methods to solve them.
 
+* [Anagrams](./#anagrams)
+* [Fibonacci Sums](./#sum-of-even-fibonacci-numbers)
+* [Roman Numerals](./#roman-numerals)
+* [Word Clock](./#word-clock)
+* [Largest Prime Factor](./#largest-prime-factor)
+* [Palindrome Numbers](./#palindrome numbers)
+
+----
+
 ## Anagrams
 
 Problem: Load words into a dictionary of anagrams. Find anagram sets for a given word from the dictionary.
@@ -10,6 +19,8 @@ Relevant methods:
     * _loads an Array of words into a dictionary containing sets of anagrams_
 * `Anagrams#find_for(word)`
     * _returns a sorted Array containing anagrams for the given word_
+
+----
 
 ## Sum of Even Fibonacci Numbers
 
@@ -31,8 +42,9 @@ Relevant methods:
 * `RomanNumerals#romanize(number)`
     * _returns a String containing the Roman numeral equivalent to the given number_
 
+----
 
-## Word Clock Kata
+## Word Clock
 
 Problem: Convert numerical times into text
 
@@ -57,6 +69,8 @@ Clock.say 12, 58
 => "It is one o'clock."
 ```
 
+----
+
 ## Largest Prime Factor
 
 Exercise: Refine Fixnum to add a method that returns its largest prime factor.
@@ -72,4 +86,23 @@ using PrimeFactors
 161.largest_prime_factor
 => 23
 ```
+
+----
+
+## Palindrome Numbers
+
+Exercise: Find the largest palindrome number created by the product of two numbers below a given limit
+
+Examples:
+
+```ruby
+PalindromeNumbers.find_largest_product(99)
+=> 9009
+# 99 * 91
+
+PalindromeNumbers.find_largest_product(999)
+=> 906609
+# 993 * 913
+```
+----
 
