@@ -4,7 +4,7 @@ class BigAssNumber
 
   def self.largest_product_of(length)
     shorts = (0..( 1000-length) ).map { |n| DIGITS[n, length] }
-    products = shorts.map { |s| s.chars.inject(1) { |p, n| p * n.to_i } }
+    products = shorts.map { |s| s.chars.reduce(1) { |p, n| p * n.to_i } }
     products.max
   end
 
