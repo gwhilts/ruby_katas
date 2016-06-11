@@ -5,7 +5,8 @@ Just a place to iterate over some simple exercises, trying out different methods
 * [Roman Numerals](https://github.com/gwhilts/ruby_katas/#roman-numerals)
 * [Word Clock](https://github.com/gwhilts/ruby_katas/#word-clock)
 * [Largest Prime Factor](https://github.com/gwhilts/ruby_katas/#largest-prime-factor)
-* [Palindrome Numbers](https://github.com/gwhilts/ruby_katas/#palindrome numbers)
+* [Palindrome Numbers](https://github.com/gwhilts/ruby_katas/#palindrome-numbers)
+* [Largest Product in a Series](https://github.com/gwhilts/ruby_katas/#largest-product-in-a-series)
 
 ----
 
@@ -91,7 +92,7 @@ using PrimeFactors
 
 ## Palindrome Numbers
 
-Exercise: Find the largest palindrome number created by the product of two numbers below a given limit
+Exercise: Find the largest palindrome number created by the product of two numbers less than or equal to a given limit
 
 Examples:
 
@@ -106,3 +107,34 @@ PalindromeNumbers.find_largest_product(999)
 ```
 ----
 
+## Largest Product in a Series
+
+Exercise: Given the string of 1000 digits below, find the largest number produced by multiplying sequential digits of a specified length
+
+```
+7316717653133062491922511967442657474235534919493496983520312774506326239578318
+0169848018694788518438586156078911294949545950173795833195285320880551112540698
+7471585238630507156932909632952274430435576689664895044524452316173185640309871
+1121722383113622298934233803081353362766142828064444866452387493035890729629049
+1560440772390713810515859307960866701724271218839987979087922749219016997208880
+9377665727333001053367881220235421809751254540594752243525849077116705560136048
+3958644670632441572215539753697817977846174064955149290862569321978468622482839
+7224137565705605749026140797296865241453510047482166370484403199890008895243450
+6585412275886668811642717147992444292823086346567481391912316282458617866458359
+1245665294765456828489128831426076900422421902267105562632111110937054421750694
+1658960408071984038509624554443629812309878799272442849091888458015616609791913
+3875499200524063689912560717606058861164671094050775410022569831552000559357297
+2571636269561882670428252483600823257530420752963450
+```
+
+Examples:
+
+```ruby
+BigAssNumber.largest_product_of 2
+=> 81
+# 9 * 9 == 81
+
+BigAssNumber.largest_product_of 4
+=> 5832
+# 9 * 9 * 8 * 9 == 5832
+```
