@@ -7,5 +7,9 @@ class PalindromeNumbersTest < MiniTest::Test
       ( PalindromeNumbers.find_largest_product 99  ).must_equal 9009
       ( PalindromeNumbers.find_largest_product 999 ).must_equal 906609
     end
+
+    it 'returns the largest palindrome product within the given range' do
+      ( PalindromeNumbers.find_largest_product 999, 100 ).must_equal 906609
+    end
   end
 end
