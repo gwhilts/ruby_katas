@@ -7,6 +7,7 @@ Just a place to iterate over some simple exercises, trying out different methods
 * [Largest Prime Factor](https://github.com/gwhilts/ruby_katas/#largest-prime-factor)
 * [Palindrome Numbers](https://github.com/gwhilts/ruby_katas/#palindrome-numbers)
 * [Largest Product in a Series](https://github.com/gwhilts/ruby_katas/#largest-product-in-a-series)
+* [Fibonacci Digit Count](https://github.com/gwhilts/ruby_katas/#fibonacci-digit-count)
 
 ----
 
@@ -137,4 +138,34 @@ BigAssNumber.largest_product_of 2
 BigAssNumber.largest_product_of 4
 => 5832
 # 9 * 9 * 8 * 9 == 5832
+```
+
+----
+
+## Fibonacci Digit Count
+
+Exercise:
+
+One of the problems from [Project Euler](https://projecteuler.net/problem=25), is to determine the index
+of the first number in the Fibonacci sequence containing 1000 digits.
+
+The kata here is to write a method that will take a count, C, and quickly return the index of the sequence
+that has at least C digits. It should be able to return the answer in less than a second, when searching 
+for numbers up to at least 10,000 digits.
+
+
+Examples:
+
+```ruby
+Fib.first_with_digit_count 2
+=> 8
+# 0, 1, 1, 2, 3, 5, 8, 13
+
+Fib.first_with_digit_count 3
+=> 12
+# 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144
+
+Fib.first_with_digit_count 10000
+=> 47847
+# returns in ~ 0.1s
 ```

@@ -1,5 +1,6 @@
-require "test_helper"
-require "fib"
+require 'test_helper'
+require 'fib'
+require 'benchmark'
 
 class FibTest < MiniTest::Test
   describe "Fib.fib(n)" do
@@ -20,6 +21,18 @@ class FibTest < MiniTest::Test
       Fib.sum_of_evens_to(8).must_equal 10
       Fib.sum_of_evens_to(100).must_equal 44
       Fib.sum_of_evens_to(200).must_equal 188
+    end
+  end
+
+  describe "Fib.first_with_digit_count" do
+    it "finds the index of the first fibonacci number with the given number of digits" do
+      Fib.first_with_digit_count(3).must_equal 12
+      Fib.first_with_digit_count(100).must_equal 476
+    end
+
+    it "works quickly with very large numbers" do
+      # Find the first Fib number with 1k digits in < 1 second
+      ( Benchmark.realtime { Fib.first_with_digit_count 10000 } ).to_i.must_equal 0
     end
   end
 end

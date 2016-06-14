@@ -14,7 +14,24 @@ class Fib
     self.calc_sum(1, 0, 0, limit)
   end
 
+  def self.first_with_digit_count(digits)
+    limit = 10**(digits-1)
+    a, b, n = 0, 1, 1
+    
+    while b < limit
+      n += 1
+      a, b = fibs a, b
+    end
+
+    n
+  end
+
   private
+  
+  def self.fibs(a, b)
+    [b, (a+b)]
+  end
+
   def self.calc_sum(n, fib_val, sum, limit)
     case
     when fib_val > limit
