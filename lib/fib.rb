@@ -1,13 +1,11 @@
 class Fib
-  def self.fib(n)
-    case n
-    when 0
-      0
-    when 1..2
-      1
-    else
-      fib( n - 1 ) + fib( n - 2 )
+  def self.fib(nth)
+    f1, f2, n = 0, 1, 1
+    while n < nth
+      f1, f2 = fibs f1, f2
+      n += 1
     end
+    f1
   end
 
   def self.sum_of_evens_to(limit)
