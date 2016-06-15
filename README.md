@@ -53,7 +53,7 @@ Problem: Convert numerical times into text
 
 Times should be rounded to the nearest five minutes, then described using the following words:
 
-"quarter", "twenty", "twenty", "five", "ten", "half", "past", "to",
+"It's", "about", "quarter", "twenty", "twenty", "five", "ten", "half", "past", "to",
 "one", "two", "three", "four", "six", "seven", "eight", "nine",
 and "eleven", "twelve".
 
@@ -62,14 +62,14 @@ If the time is on the hour, the phrase should end with "o'clock".
 Examples:
 
 ```ruby
-Clock.say 4, 23
+Clock.say 4, 25
 => "It is twenty five past four."
 
-Clock.say 6, 52
-=> "It is ten to six."
+Clock.say 6, 50
+=> "It is ten to seven."
 
 Clock.say 12, 58
-=> "It is one o'clock."
+=> "It is about one o'clock."
 ```
 
 ----
