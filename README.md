@@ -8,6 +8,7 @@ Just a place to iterate over some simple exercises, trying out different methods
 * [Palindrome Numbers](https://github.com/gwhilts/ruby_katas/#palindrome-numbers)
 * [Largest Product in a Series](https://github.com/gwhilts/ruby_katas/#largest-product-in-a-series)
 * [Fibonacci Digit Count](https://github.com/gwhilts/ruby_katas/#fibonacci-digit-count)
+* [Collatz Sequence](https://github.com/gwhits/ruby_katas/#collatz-sequence)
 
 ----
 
@@ -168,4 +169,36 @@ Fib.first_with_digit_count 3
 Fib.first_with_digit_count 10000
 => 47847
 # returns in ~ 0.1s
+```
+
+----
+
+### Collatz Sequence
+
+Exercise:
+
+[Project Euler problem 14](https://projecteuler.net/problem=14) asks us to find the starting number under
+1,000,000 that creates the longest Collatz chain.
+
+The sequence begins with a number n, then continues with n/2 if is even, or (3n + 1) if n is odd. The rule
+is repeated until n reaches one. (It is assumed that it will always reach 1.)
+
+To solve the Project Euler problem, let's write a class with a method that will return the Collatz sequence
+beginning with any given positive number. Then add a method that returns the starting number and length of 
+the longest chain that begins with a number less than or equal to a given limit.
+
+Examples:
+
+```ruby
+Collatz.sequence_from 13
+=> [13, 40, 20, 10, 5, 16, 8, 4, 2, 1]
+
+Collatz.sequence_from 6
+=> [6, 3, 10, 5, 16, 8, 4, 2, 1]
+
+Collatz.longest_under 8
+=> { start: 7, length: 17 }
+
+Collatz.longest_under 2000
+=> { start: 1161, length: 182 }
 ```
