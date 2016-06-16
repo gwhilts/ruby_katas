@@ -10,6 +10,7 @@ Just a place to iterate over some simple exercises, trying out different methods
 * [Fibonacci Digit Count](https://github.com/gwhilts/ruby_katas/#fibonacci-digit-count)
 * [Collatz Sequence](https://github.com/gwhits/ruby_katas/#collatz-sequence)
 * [Number Words](http://github.com/gwhilts/ruby_katas/#number-words)
+* [Amicable Numbers](http://github.com/gwhilts/ruby_katas/#amicable-numbers)
 
 ----
 
@@ -239,8 +240,8 @@ return the letter count for any number or range of numbers (up to 9999).
 
 The phrases should adhere to the British tradition of using the word "and" like so:
 
-413  => "four hundred and thirteen"
-2148 => "two thousand one hundred and forty eight"
+- 413  => "four hundred and thirteen"
+- 2148 => "two thousand one hundred and forty eight"
 
 The count should ignore spaces and other non-letter characters.
 
@@ -258,4 +259,38 @@ NumberWord.letter_count 16
 
 NumberWord.letter_count 1, 20
 => 112
+```
+
+### Amicable Numbers
+
+**Exercise**
+
+_From [Project Euler, Problem 21](https://projecteuler.net/problem=21)_
+
+> Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
+> If d(a) = b and d(b) = a, where a ≠ b, then a and b are an amicable pair and each of a and b are called amicable numbers.
+> 
+> For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 and 110; therefore d(220) = 284. 
+> The proper divisors of 284 are 1, 2, 4, 71 and 142; so d(284) = 220.
+> 
+> Evaluate the sum of all the amicable numbers under 10000.
+
+To solve this problem let's create a class with two public methods: One that will
+return the unique pairs of amicable numbers up to a given limit, and another that 
+will return the sum of all the amicable numbers up to a limit.
+
+**Examples**
+
+```ruby
+AmicableNumbers.pairs_to 300
+=> [[220, 284]]
+
+AmicableNumbers.pairs_to 2000
+=> [[220, 284], [1184, 1210]] 
+
+AmicableNumbers.sum_to 300
+=> 504
+
+AmicableNumbers.sum_to 100
+=> 2898
 ```
