@@ -291,6 +291,6 @@ AmicableNumbers.pairs_to 2000
 AmicableNumbers.sum_to 300
 => 504
 
-AmicableNumbers.sum_to 100
+AmicableNumbers.sum_to 2000
 => 2898
 ```

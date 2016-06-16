@@ -46,7 +46,7 @@ class AmicableNumbers
       else
         primes, powers = n.prime_division.transpose
         exponents = powers.map{|i| (0..i).to_a}
-        factors = exponents.shift.product(*exponents).map do |exp|
+        exponents.shift.product(*exponents).map do |exp|
           primes.zip(exp).map{|prime, power| prime ** power}.inject(:*)
         end
       end
