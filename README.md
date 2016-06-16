@@ -9,25 +9,35 @@ Just a place to iterate over some simple exercises, trying out different methods
 * [Largest Product in a Series](https://github.com/gwhilts/ruby_katas/#largest-product-in-a-series)
 * [Fibonacci Digit Count](https://github.com/gwhilts/ruby_katas/#fibonacci-digit-count)
 * [Collatz Sequence](https://github.com/gwhits/ruby_katas/#collatz-sequence)
+* [Number Words](http://github.com/gwhilts/ruby_katas/#number-words)
 
 ----
 
-## Anagrams
+### Anagrams
 
-Problem: Load words into a dictionary of anagrams. Find anagram sets for a given word from the dictionary.
+**Exercise**
 
-Relevant methods:
+Load words into a dictionary of anagrams. Find anagram sets for a given word from the dictionary.
 
-* `Anagrams#add_words(words)`
-    * _loads an Array of words into a dictionary containing sets of anagrams_
-* `Anagrams#find_for(word)`
-    * _returns a sorted Array containing anagrams for the given word_
+**Examples**
+
+```ruby
+anagrams = Anagrams.new( %w{ foo echo car baz rat chore bar art tar ochre } )
+
+anagrams.find_for 'rat'
+=> ['art', 'rat', 'tar']
+
+anagrams.find_for 'chore'
+=> ['chore', 'ochre']
+```
 
 ----
 
-## Sum of Even Fibonacci Numbers
+### Sum of Even Fibonacci Numbers
 
-Problem: Find the sum of of the even Fibonacci numbers up to a value of 4,000,000
+**Exercise**
+
+Find the sum of of the even Fibonacci numbers up to a value of 4,000,000
 
 Relevant methods:
 
@@ -36,9 +46,11 @@ Relevant methods:
 * `Fib.sum_of_evens_to(limit)`
     * _returns the sum of all the even Fib numbers below the given limit_
 
-## Roman Numerals
+### Roman Numerals
 
-Problem: Convert Arabic numbers to Roman numerals
+**Exercise**
+
+Convert Arabic numbers to Roman numerals
 
 Relevant methods:
 
@@ -47,9 +59,11 @@ Relevant methods:
 
 ----
 
-## Word Clock
+### Word Clock
 
-Problem: Convert numerical times into text
+**Exercise**
+
+Convert numerical times into text
 
 Times should be rounded to the nearest five minutes, then described using the following words:
 
@@ -59,7 +73,7 @@ and "eleven", "twelve".
 
 If the time is on the hour, the phrase should end with "o'clock".
 
-Examples:
+**Examples**
 
 ```ruby
 Clock.say 4, 25
@@ -74,11 +88,13 @@ Clock.say 12, 58
 
 ----
 
-## Largest Prime Factor
+### Largest Prime Factor
 
-Exercise: Refine Fixnum to add a method that returns its largest prime factor.
+**Exercise**
 
-Examples: 
+Refine Fixnum to add a method that returns its largest prime factor.
+
+**Examples** 
 
 ```ruby
 using PrimeFactors
@@ -92,11 +108,13 @@ using PrimeFactors
 
 ----
 
-## Palindrome Numbers
+### Palindrome Numbers
 
-Exercise: Find the largest palindrome number created by the product of two numbers less than or equal to a given limit
+**Exercise**
 
-Examples:
+Find the largest palindrome number created by the product of two numbers less than or equal to a given limit
+
+**Examples**
 
 ```ruby
 PalindromeNumbers.find_largest_product(99)
@@ -109,9 +127,11 @@ PalindromeNumbers.find_largest_product(999)
 ```
 ----
 
-## Largest Product in a Series
+### Largest Product in a Series
 
-Exercise: Given the string of 1000 digits below, find the largest number produced by multiplying sequential digits of a specified length
+**Exercise**
+
+Given the string of 1000 digits below, find the largest number produced by multiplying sequential digits of a specified length
 
 ```
 7316717653133062491922511967442657474235534919493496983520312774506326239578318
@@ -129,7 +149,7 @@ Exercise: Given the string of 1000 digits below, find the largest number produce
 2571636269561882670428252483600823257530420752963450
 ```
 
-Examples:
+**Examples**
 
 ```ruby
 BigAssNumber.largest_product_of 2
@@ -143,9 +163,9 @@ BigAssNumber.largest_product_of 4
 
 ----
 
-## Fibonacci Digit Count
+### Fibonacci Digit Count
 
-Exercise:
+**Exercise**
 
 One of the problems from [Project Euler](https://projecteuler.net/problem=25), is to determine the index
 of the first number in the Fibonacci sequence containing 1000 digits.
@@ -155,7 +175,7 @@ that has at least C digits. It should be able to return the answer in less than 
 for numbers up to at least 10,000 digits.
 
 
-Examples:
+**Examples**
 
 ```ruby
 Fib.first_with_digit_count 2
@@ -175,7 +195,7 @@ Fib.first_with_digit_count 10000
 
 ### Collatz Sequence
 
-Exercise:
+**Exercise**
 
 [Project Euler problem 14](https://projecteuler.net/problem=14) asks us to find the starting number under
 1,000,000 that creates the longest Collatz chain.
@@ -187,7 +207,7 @@ To solve the Project Euler problem, let's write a class with a method that will 
 beginning with any given positive number. Then add a method that returns the starting number and length of 
 the longest chain that begins with a number less than or equal to a given limit.
 
-Examples:
+**Examples**
 
 ```ruby
 Collatz.sequence_from 13
@@ -201,4 +221,41 @@ Collatz.longest_under 8
 
 Collatz.longest_under 2000
 => { start: 1161, length: 182 }
+```
+
+----
+
+### Number Words
+
+**Exercise**
+
+[Project Euler problem 17](https://projecteuler.net/problem=17) asks us to 
+convert all the numbers from 1 to 1000 to English phrases, then count up all
+the letters.
+
+To solve the problem, create a class with two methods: one that will convert
+any number (up to at least 9999) to an English phrase, and a second that will
+return the letter count for any number or range of numbers (up to 9999).
+
+The phrases should adhere to the British tradition of using the word "and" like so:
+
+413  => "four hundred and thirteen"
+2148 => "two thousand one hundred and forty eight"
+
+The count should ignore spaces and other non-letter characters.
+
+**Examples**
+
+```ruby
+NumberWords.say 916
+=> "nine hundred and sixteen"
+
+NumberWords.say 2400
+=> "two thousand four hundred"
+
+NumberWord.letter_count 16
+=> 7
+
+NumberWord.letter_count 1, 20
+=> 112
 ```
