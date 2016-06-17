@@ -6,3 +6,9 @@ Rake::TestTask.new do |task|
 end
   
 task :default => :test
+
+task :bench do
+  Dir.glob('test/*_bench.rb') do |benchmark|
+    ruby "-I lib #{benchmark}"
+  end  
+end
