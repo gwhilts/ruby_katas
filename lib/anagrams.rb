@@ -19,7 +19,6 @@ class Anagrams
   end
 
   private
-
   def key_for(word)
     word.downcase
         .gsub(/[à-å]/, 'a')
