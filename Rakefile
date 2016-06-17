@@ -9,6 +9,6 @@ task :default => :test
 
 task :bench do
   Dir.glob('test/*_bench.rb') do |benchmark|
-    ruby "-I lib #{benchmark}"
+    ruby "-I lib -I test #{benchmark}"
   end  
 end
