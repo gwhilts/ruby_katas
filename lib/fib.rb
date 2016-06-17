@@ -8,36 +8,30 @@ class Fib
     f1
   end
 
-  def self.sum_of_evens_to(limit)
-    self.calc_sum(1, 0, 0, limit)
-  end
-
-  def self.first_with_digit_count(digits)
-    limit = 10**(digits-1)
-    a, b, n = 0, 1, 1
-    
-    while b < limit
-      n += 1
-      a, b = fibs a, b
-    end
-
-    n
-  end
-
-  private
-  
-  def self.fibs(a, b)
-    [b, (a+b)]
-  end
-
-  def self.calc_sum(n, fib_val, sum, limit)
+  def self.sum_of_evens_to(n = 1, fib_val = 0, sum = 0, limit)
     case
     when fib_val > limit
       sum
     when fib_val.even?
-      self.calc_sum(n + 1, fib(n), sum + fib_val, limit)
+      self.sum_of_evens_to(n + 1, fib(n), sum + fib_val, limit)
     else 
-      self.calc_sum(n + 1, fib(n), sum, limit)
+      self.sum_of_evens_to(n + 1, fib(n), sum, limit)
     end
   end
+
+  def self.index_where_digit_count(count)
+    limit = 10**(count - 1)
+    a, b, n = 0, 1, 1
+    while b < limit
+      n += 1
+      a, b = fibs a, b
+    end
+    n
+  end
+
+  private
+  def self.fibs(a, b)
+    [b, (a+b)]
+  end
+
 end
