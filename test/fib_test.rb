@@ -24,15 +24,15 @@ class FibTest < MiniTest::Test
     end
   end
 
-  describe "Fib.first_with_digit_count" do
+  describe "Fib.index_where_digit_count(count)" do
     it "finds the index of the first fibonacci number with the given number of digits" do
-      Fib.first_with_digit_count(3).must_equal 12
-      Fib.first_with_digit_count(100).must_equal 476
+      Fib.index_where_digit_count(3).must_equal 12
+      Fib.index_where_digit_count(100).must_equal 476
     end
 
     it "works quickly with very large numbers" do
       # Find the first Fib number with 1k digits in < 1 second
-      ( Benchmark.realtime { Fib.first_with_digit_count 10000 } ).to_i.must_equal 0
+      ( Benchmark.realtime { Fib.index_where_digit_count 10000 } ).to_i.must_equal 0
     end
   end
 end
