@@ -20,3 +20,6 @@
 /.bundle/
 /vendor/bundle
 /lib/bundler/man/
+
+## Mac Sillyness
+.DS_Store
