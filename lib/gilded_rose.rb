@@ -6,49 +6,46 @@ class GildedRose
   end
 
   def update_quality
-    if @name != 'Aged Brie' && !@name.start_with?("Backstage pass")
-      if @quality > 0
-        if @name != 'Sulfuras, Hand of Ragnaros'
-          @quality -= 1
-        end
-      end
+    case @name
+    when /^Aged Brie/
+      return brie_update
+    when /^Sulfuras/
+      return
+    when /^Backstage pass/
+      return backstage_pass_update
+    when /^Conjured/
+      return conjured_item_update
     else
-      if @quality < 50
-        @quality += 1
-        if @name.start_with?("Backstage pass")
-          if @days_remaining < 11
-            if @quality < 50
-              @quality += 1
-            end
-          end
-          if @days_remaining < 6
-            if @quality < 50
-              @quality += 1
-            end
-          end
-        end
-      end
-    end
-    if @name != 'Sulfuras, Hand of Ragnaros'
-      @days_remaining -= 1
-    end
-    if @days_remaining < 0
-      if @name != "Aged Brie"
-        unless @name.start_with?("Backstage pass")
-          if @quality > 0
-            if @name != 'Sulfuras, Hand of Ragnaros'
-              @quality -= 1
-            end
-          end
-        else
-          @quality = @quality - @quality
-        end
-      else
-        if @quality < 50
-          @quality += 1
-        end
-      end
+      return normal_update
     end
   end
+
+  private
+  def normal_update
+    @days_remaining -= 1
+    @quality -= 1 if @days_remaining < 0
+    @quality = [0, @quality - 1].max
+  end
+
+  def brie_update
+    @days_remaining -= 1
+    @quality += 1 if @days_remaining < 0
+    @quality = [@quality + 1, 50].min
+  end
+
+  def backstage_pass_update
+    @days_remaining -=1
+    @quality += 1
+    @quality += 1 if @days_remaining < 10
+    @quality += 1 if @days_remaining < 3
+    @quality =  0 if @days_remaining < 0
+  end
+
+  def conjured_item_update
+    @days_remaining -= 1
+    @quality -= 2 if @days_remaining < 0
+    @quality = [0, @quality - 2].max
+  end
+
 
 end
