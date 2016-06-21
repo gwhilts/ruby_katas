@@ -1,6 +1,4 @@
 module GildedRose
-  attr_reader :name, :quality, :days_remaining
-
   def self.new(name, quality, days_remaining)
     klass_for(name).new(quality, days_remaining)
   end
