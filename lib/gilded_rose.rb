@@ -1,51 +1,68 @@
-class GildedRose
+module GildedRose
   attr_reader :name, :quality, :days_remaining
 
-  def initialize(name, quality, days_remaining)
-    @name, @quality, @days_remaining = name, quality, days_remaining
+  def self.new(name, quality, days_remaining)
+    klass_for(name).new(quality, days_remaining)
   end
 
-  def update_quality
-    case @name
+  def self.klass_for(name)
+    case name
     when /^Aged Brie/
-      return brie_update
+      BrieItem
     when /^Sulfuras/
-      return
+      Item
     when /^Backstage pass/
-      return backstage_pass_update
+      BackstagePassItem
     when /^Conjured/
-      return conjured_item_update
+      ConjuredItem
     else
-      return normal_update
+      NormalItem
     end
   end
 
-  private
-  def normal_update
-    @days_remaining -= 1
-    @quality -= 1 if @days_remaining < 0
-    @quality = [0, @quality - 1].max
+  class Item
+    attr_reader :name, :quality, :days_remaining
+
+    def initialize(quality, days_remaining)
+      @quality, @days_remaining = quality, days_remaining
+    end
+
+    def update_quality
+    end
   end
 
-  def brie_update
-    @days_remaining -= 1
-    @quality += 1 if @days_remaining < 0
-    @quality = [@quality + 1, 50].min
+  class NormalItem < Item
+    def update_quality
+      @days_remaining -= 1
+      @quality -= 1 if @days_remaining < 0
+      @quality = [0, @quality - 1].max
+    end
   end
 
-  def backstage_pass_update
-    @days_remaining -=1
-    @quality += 1
-    @quality += 1 if @days_remaining < 10
-    @quality += 1 if @days_remaining < 3
-    @quality =  0 if @days_remaining < 0
+  class BrieItem < Item
+    def update_quality
+      @days_remaining -= 1
+      @quality += 1 if @days_remaining < 0
+      @quality = [@quality + 1, 50].min
+    end
   end
 
-  def conjured_item_update
-    @days_remaining -= 1
-    @quality -= 2 if @days_remaining < 0
-    @quality = [0, @quality - 2].max
+  class ConjuredItem < Item
+    def update_quality
+      @days_remaining -= 1
+      @quality -= 2 if @days_remaining < 0
+      @quality = [0, @quality - 2].max
+    end
   end
 
+  class BackstagePassItem < Item
+    def update_quality
+      @days_remaining -=1
+      @quality += 1
+      @quality += 1 if @days_remaining < 10
+      @quality += 1 if @days_remaining < 5
+      @quality =  0 if @days_remaining < 0
+    end
+  end
 
 end
