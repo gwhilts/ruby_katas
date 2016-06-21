@@ -11,6 +11,7 @@ Just a place to iterate over some simple exercises, trying out different methods
 * [Collatz Sequence](https://github.com/gwhits/ruby_katas/#collatz-sequence)
 * [Number Words](http://github.com/gwhilts/ruby_katas/#number-words)
 * [Amicable Numbers](http://github.com/gwhilts/ruby_katas/#amicable-numbers)
+* [Gilded Rose](http://github.com/gwhilts/ruby_katas/#gilded-rose)
 
 ----
 
@@ -293,4 +294,96 @@ AmicableNumbers.sum_to 300
 
 AmicableNumbers.sum_to 2000
 => 2898
+```
+
+----
+
+### Gilded Rose
+
+**Exercise**
+
+Refactor the `GildedRose` so that you easily add code to support the new requirement described below:
+
+> **Original Description of the Gilded Rose**
+>
+> Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime location in a prominent city 
+> run by a friendly innkeeper named Allison. We also buy and sell only the finest goods. Unfortunately, our goods 
+> are constantly degrading in quality as they approach their sell by date. We have a system in place that updates 
+> our inventory for us. It was developed by a no-nonsense type named Leeroy, who has moved on to new adventures. 
+> Your task is to add the new feature to our system so that we can begin selling a new category of items. First an 
+> introduction to our system:
+> 
+> All items have a Days Remaining value which denotes the number of days we have to sell the item
+> All items have a Quality value which denotes how valuable the item is
+> At the end of each day our system lowers both values for every item
+> Pretty simple, right? Well this is where it gets interesting:
+> 
+> Once the sell by date has passed, Quality degrades twice as fast
+> The Quality of an item is never negative
+> "Aged Brie" actually increases in Quality the older it gets
+> The Quality of an item is never more than 50
+> "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
+> "Backstage passes", like aged brie, increases in Quality as it's Days Remaining value approaches; Quality increases by 2
+> when there are 10 days or less and by 3 when there are 5 days or less but Quality drops to 0 after the concert
+> We have recently signed a supplier of conjured items. This requires an update to our system:
+> 
+> "Conjured" items degrade in Quality twice as fast as normal items.
+> 
+> Just for clarification, an item can never have its Quality increase above 50, however "Sulfuras" is a legendary
+> item and as such its Quality is 80 and it never alters.
+
+
+**Note**
+
+The code here is based on the version Sandi Metz used in her talk,
+"All the Little Things". It is slightly different than Jim Weirich's
+version (itself a variation of a C# example). Jim used an unbound method,
+`update_quality(item)` that took a Struct with three attributes: a `name`,
+a `quality` metric, and a `sell_in` value representing the number of
+days remaining before the item should be sold. In Sandi's version, the
+method and the attributes belong to instances of a `GildedRose` class 
+(before refactoring). In both versions the `update_quality` method
+(which Sandi call `tick`) is fifty or so lines of tangled, nested if
+statements, that beg to be refactored into something more manageable.
+
+I've also implemented the test Jim included with his version, adjusted
+to accommodate using the GildedRose class, and ported from somewhat
+dated rspec-given code to minitest-spec.  All the tests for the 
+existing code is passing. The tests for the new "Conjured Item" code is
+set to skip, so we can refactor "in the green" before adding it.
+
+**Examples**
+
+```ruby
+
+item = GildedRose.new("Free Range Platypus Eggs", 10, 6)
+=> #<GildedRose:0x007ff34d93b640 @days_remaining=6, @name="Free Range Platypus Eggs", @quality=10>
+
+item.update_quality
+
+item.days_remaining
+=> 5
+
+item.quality
+=> 9
+
+
+tix = GildedRose.new("Backstage pass to Elvis Costello show", 39, 1)
+=> #<GildedRose:0x007ff34da0ba98 @days_remaining=2, @name="Backstage pass to Elvis Costello show", @quality=40>
+
+tix.update_quality
+
+tix.days_remaining
+=> 0
+
+tix.quality
+=> 42
+
+tix.update_quality
+
+tix.days_remaining
+=> -1
+
+tix.quality
+=> 0
 ```
