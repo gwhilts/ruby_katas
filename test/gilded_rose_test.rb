@@ -163,7 +163,8 @@ describe GildedRose do
     end
 
     describe "Conjured Items" do
-      let(:item_name) { "Conjured Mana Cake" }
+      let(:item_name)     { "Conjured Mana Cake" }
+      let(:item_two_name) { "Conjured Welsh Rabbit" }
       before(:each) do
         skip "Refactor the class, then make me pass"
       end
@@ -171,6 +172,7 @@ describe GildedRose do
       describe "Before sell date" do
         it "decreases the quality by two" do
           item.quality.must_equal ( initial_quality - 2 )
+          item_two.quality.must_equal ( initial_quality - 2 )
         end
       end
 
@@ -179,14 +181,16 @@ describe GildedRose do
 
         it "decreases the quality by four" do
           item.quality.must_equal (initial_quality - 4)
+          item_two.quality.must_equal (initial_quality - 4)
         end
       end
 
       describe "Past the sell date" do
         let(:initial_days) { -10 }
 
-        it "decreases the quality by 2" do
+        it "decreases the quality by 4" do
           item.quality.must_equal (initial_quality - 4)
+          item_two.quality.must_equal (initial_quality - 4)
         end
       end
 
