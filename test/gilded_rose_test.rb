@@ -2,24 +2,29 @@ require 'test_helper'
 require 'gilded_rose'
 
 describe GildedRose do
-  let(:item_name) { "Organic Foobar" }
+  let(:item_name)       { "Organic Foobar" }
+  let(:item_two_name)   { "Raw Baz" }
   let(:initial_days)    { 5 }
   let(:initial_quality) { 10 }
-  let(:item) { GildedRose.new( item_name, initial_quality, initial_days) }
+  let(:item)     { GildedRose.new item_name, initial_quality, initial_days  }
+  let(:item_two) { GildedRose.new item_two_name, initial_quality, initial_days  }
 
   describe "#update_quality" do
     before(:each) do
       item.update_quality
+      item_two.update_quality
     end
 
     it "decreases the days remaining by one" do 
       item.days_remaining.must_equal ( initial_days - 1 )
+      item_two.days_remaining.must_equal ( initial_days - 1 )
     end
   
     describe "Normal Items" do
       describe "Before sell date" do
         it "decreases the quality by one" do
           item.quality.must_equal ( initial_quality - 1 )
+          item_two.quality.must_equal ( initial_quality - 1 )
         end
       end
 
@@ -28,6 +33,7 @@ describe GildedRose do
 
         it "decreases the quality by 2" do
           item.quality.must_equal (initial_quality - 2)
+          item_two.quality.must_equal (initial_quality - 2)
         end
       end
 
@@ -36,6 +42,7 @@ describe GildedRose do
 
         it "decreases the quality by 2" do
           item.quality.must_equal (initial_quality - 2)
+          item_two.quality.must_equal (initial_quality - 2)
         end
       end
 
@@ -116,7 +123,8 @@ describe GildedRose do
     end
     
     describe "Backstage Pass" do
-      let(:item_name) { "Backstage pass to Punch Brothers Concert" }
+      let(:item_name)     { "Backstage pass to Punch Brothers Concert" }
+      let(:item_two_name) { "Backstage pass to Elvis Costello Concert" }
 
       describe "Long before the sell date" do
         let(:initial_days) { 20 }
@@ -156,6 +164,9 @@ describe GildedRose do
 
     describe "Conjured Items" do
       let(:item_name) { "Conjured Mana Cake" }
+      before(:each) do
+        skip "Refactor the class, then make me pass"
+      end
 
       describe "Before sell date" do
         it "decreases the quality by two" do
@@ -174,7 +185,7 @@ describe GildedRose do
       describe "Past the sell date" do
         let(:initial_days) { -10 }
 
-        it "decreases the quality by four" do
+        it "decreases the quality by 2" do
           item.quality.must_equal (initial_quality - 4)
         end
       end
