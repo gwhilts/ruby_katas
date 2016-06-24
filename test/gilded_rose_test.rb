@@ -165,9 +165,6 @@ describe GildedRose do
     describe "Conjured Items" do
       let(:item_name)     { "Conjured Mana Cake" }
       let(:item_two_name) { "Conjured Welsh Rabbit" }
-      before(:each) do
-        skip "Refactor the class, then make me pass"
-      end
 
       describe "Before sell date" do
         it "decreases the quality by two" do
