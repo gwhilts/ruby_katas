@@ -12,6 +12,8 @@ Just a place to iterate over some simple exercises, trying out different methods
 * [Number Words](http://github.com/gwhilts/ruby_katas/#number-words)
 * [Amicable Numbers](http://github.com/gwhilts/ruby_katas/#amicable-numbers)
 * [Gilded Rose](http://github.com/gwhilts/ruby_katas/#gilded-rose)
+* [Name Scores](http://github.com/gwhilts/ruby_katas/#name-scores)
+* [Circular Primes](http://github.com/gwhilts/ruby_katas/#circular-primes)
 
 ----
 
@@ -428,3 +430,30 @@ NameScores.score_of 'AARON'
 NameScores.grand_total
 => ????????
 ```
+
+----
+
+### Circular Primes
+
+_[Project Euler, Problem 35](https://projecteuler.net/problem=35)_
+
+> The number, 197, is called a circular prime because all rotations 
+> of the digits: 197, 971, and 719, are themselves prime.
+> 
+> There are thirteen such primes below 100: 
+> 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
+> 
+> How many circular primes are there below one million?
+
+To solve this problem create Circular Primes class with a class 
+method `.circular_primes_to(limit)` that returns all the circular
+prime numbers up to the given limit.
+
+```ruby
+CircularPrimes.circular_primes_to 100
+=> [2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, 97]
+
+CircularPrimes.circular_primes_to 1_000
+=> [2, 3, 5, 7, 11, 13, ..., 719, 733, 919, 971, 991]
+```
+
