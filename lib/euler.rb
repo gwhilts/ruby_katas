@@ -53,6 +53,11 @@ class Euler
     end
 
     # Problem 13:	Large sum	
+    def p13
+      require 'bigsum'
+      puts 'The firt ten digits of sum of the 100 given 50-digit numbers is:'
+      puts "#{ Bigsum.new.first_ten_of_sum }"
+    end
     
     # Problem 14:	Longest Collatz sequence	
     def p14
@@ -84,7 +89,13 @@ class Euler
     end
 
     # Problem 23:	Non-abundant sums	
+    
     # Problem 24:	Lexicographic permutations	
+    def p24
+      puts 'The millionth lexicographical permutation of the digits 0-9 is:'
+      puts [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].permutation.to_a[999_999].join
+    end
+
     # Problem 25:	1000-digit Fibonacci number
     # Problem 26:	Reciprocal cycles	
     # Problem 27:	Quadratic primes	

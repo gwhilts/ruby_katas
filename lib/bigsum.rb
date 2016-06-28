@@ -1,4 +1,4 @@
-# Project Euler Problem no. 11
+# Project Euler Problem no. 13
 
 class Bigsum
   NUMBERS = [
