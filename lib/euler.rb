@@ -1,6 +1,5 @@
 class Euler
   class << self
-
     # Problem Two Even Fibonacci Numbers
     def p2
       require 'fib'
@@ -85,6 +84,11 @@ class Euler
     # Problem 18:	Maximum path sum I	
     # Problem 19:	Counting Sundays	
     # Problem 20:	Factorial digit sum
+    def p20
+      require 'j_math'
+      puts "The sum of the digits of 100! is:"
+      puts JMath.digits( JMath.factorial 100 ).inject(:+)
+    end
 
     # Problem 21:	Amicable numbers
     def p21
