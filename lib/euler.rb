@@ -97,6 +97,12 @@ class Euler
     end
 
     # Problem 25:	1000-digit Fibonacci number
+    def p25
+      puts 'The index of the first term in the Fibonacci sequence that '\
+           'contains 1,000 digits is:'
+      puts Fib.index_where_digit_count 1_000
+    end
+
     # Problem 26:	Reciprocal cycles	
     # Problem 27:	Quadratic primes	
     # Problem 28:	Number spiral diagonals	
