@@ -1,7 +1,7 @@
 class PalindromeNumbers
   def self.find_largest_product(high, low = 1)
 
-# This version is somewhat clearer than that below, but is about 3x slower than that below
+# This version is somewhat clearer than that below, but is about 3x slower 
 
 #   pairs       = (low..high).to_a.product (low..high).to_a
 #   products    = pairs.map { |p| p[0] * p[1] }
