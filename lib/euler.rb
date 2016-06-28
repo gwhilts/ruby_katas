@@ -68,8 +68,20 @@ class Euler
     end
 
     # Problem 15:	Lattice paths	
+    
     # Problem 16:	Power digit sum	
+    def p16
+      puts 'The sum of the digits of 2 to the 1000th is:'
+      puts ((2**1000).to_s.chars.inject(0) { |sum, d| sum + d.to_i })
+    end
+
     # Problem 17:	Number letter counts	
+    def p17
+      require 'number_words'
+      puts "If all the numbers from 1 to 1000 were written out in words, "\
+           "#{ NumberWords.letter_count(1, 1000) } letters would be used."
+    end
+
     # Problem 18:	Maximum path sum I	
     # Problem 19:	Counting Sundays	
     # Problem 20:	Factorial digit sum
