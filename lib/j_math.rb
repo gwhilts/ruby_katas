@@ -10,16 +10,6 @@ class JMath
       n.downto(1).inject(:*)
     end
 
-    def lcm(divs)
-      max = divs.max
-       ( max..( factorial(max) ) ).step(max) do |n|
-        if ( divs.select { |d| n % d == 0 } ).size == divs.size
-          return n
-        end
-        nil
-      end
-    end
-
     def power_permutations(range)
       range.to_a.permutation(2).to_a + range.map { |n| [n, n] } 
     end
