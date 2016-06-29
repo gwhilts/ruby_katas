@@ -170,6 +170,10 @@ class Euler
     # Problem 38:	Pandigital multiples
 
     # Problem 39:	Integer right triangles
+    def p39
+      puts "The permimeter (≤ 1000) for which there are the most integer right triangles is:"
+      puts JMath.most_right_triangles 1000
+    end
 
     # Problem 40:	Champernowne's constant
 

@@ -52,5 +52,25 @@ class JMath
       end
       tp_set
     end
+
+    def right_triangles(p)
+      set = []
+      (p-2).downto 2 do |c|
+        b = p - c - 1
+        b.downto 2 do |b|
+          a = p - c - b
+          set << [a, b, c].sort if a**2 + b**2 == c**2
+        end  
+      end
+      set.uniq
+    end
+
+    def most_right_triangles(limit)
+      h = {}
+      (14..limit).each do |n|
+        h[n] = (right_triangles n).count
+      end
+      ( h.select { |k, v| v == h.values.max } ).keys.first
+    end
   end
 end
