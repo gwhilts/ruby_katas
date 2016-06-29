@@ -11,8 +11,8 @@ class JMath
     end
 
     def lcm(divs)
-      ((divs.max)..factorial(divs.max)).each do |n|
-        n += 1
+      max = divs.max
+       ( max..( factorial(max) ) ).step(max) do |n|
         if ( divs.select { |d| n % d == 0 } ).size == divs.size
           return n
         end
