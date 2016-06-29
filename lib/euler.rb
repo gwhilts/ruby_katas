@@ -23,6 +23,9 @@ class Euler
 
     # Problem 5: Smallest Multiple
     def p5
+      require 'j_math'
+      puts "The smallest positive number that is evenly divisible by all of the numbers from 1 to 20 is:"
+      puts JMath.lcm 1..10
     end
 
     # Problem 6: Sum Square Difference
@@ -81,8 +84,9 @@ class Euler
            "#{ NumberWords.letter_count(1, 1000) } letters would be used."
     end
 
-    # Problem 18:	Maximum path sum I	
-    # Problem 19:	Counting Sundays	
+    # Problem 18:	Maximum path sum
+    # Problem 19:	Counting Sundays
+
     # Problem 20:	Factorial digit sum
     def p20
       require 'j_math'
