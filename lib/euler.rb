@@ -161,6 +161,11 @@ class Euler
     # Problem 36:	Double-base palindromes
 
     # Problem 37:	Truncatable primes
+    def p37
+      require 'j_math'
+      puts "The sum of all (11) truncatable prime numbers is: "
+      puts JMath.truncatable_primes.inject(:+)
+    end
 
     # Problem 38:	Pandigital multiples
 

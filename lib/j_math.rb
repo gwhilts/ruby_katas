@@ -25,5 +25,32 @@ class JMath
       end
     end
 
+    def right_trunks(n)
+      t = []
+      d = JMath.digits n
+      d.each_index { |i| t << ( d.slice(0, i + 1).join.to_i ) }
+      t
+    end
+
+    def left_trunks(n)
+      t = []
+      d = JMath.digits n
+      d.each_index { |i| t << ( d.slice(-i - 1, d.size).join.to_i ) }
+      t
+    end
+
+    def trunks(n)
+      ( right_trunks(n) + left_trunks(n) ).uniq.sort
+    end
+
+    def truncatable_primes
+      primes = Prime.each
+      tp_set = []
+      while tp_set.size < 11
+        p = primes.next
+        tp_set << p unless trunks(p).any? { |t| !t.prime? } || p < 8
+      end
+      tp_set
+    end
   end
 end
