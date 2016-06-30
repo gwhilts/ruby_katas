@@ -47,9 +47,11 @@ class Euler
       puts BigAssNumber.largest_product_of(13)
     end
 
-    # Problem 9: Special Pythagorean tripleu
+    # Problem 9: Special Pythagorean triplet
     def p9
-
+      require 'j_math'
+      puts "The product of the values of the only Pythagorean triplet who's sum equals 1000 is: "\
+           "#{ JMath.right_triangles(1000).flatten.inject(:*) }"
     end
 
     # Problem 10: Summation of Primes
