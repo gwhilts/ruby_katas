@@ -35,6 +35,10 @@ class Euler
     end
 
     # Problem 7: 10001st prime
+    def p7
+      require 'prime'
+      puts "The 10,001st prime number is: #{ Prime.take(10_001).last }."
+    end
 
     # Problem 8: Largest product in a series
     def p8
@@ -44,6 +48,10 @@ class Euler
     end
 
     # Problem 9: Special Pythagorean tripleu
+    def p9
+
+    end
+
     # Problem 10: Summation of Primes
     def p10
       require 'prime'
