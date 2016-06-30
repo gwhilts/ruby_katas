@@ -132,6 +132,7 @@ class Euler
 
     # Problem 25:	1000-digit Fibonacci number
     def p25
+      require 'fib'
       puts 'The index of the first term in the Fibonacci sequence that '\
            'contains 1,000 digits is:'
       puts Fib.index_where_digit_count 1_000
