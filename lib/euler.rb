@@ -43,8 +43,14 @@ class Euler
       puts BigAssNumber.largest_product_of(13)
     end
 
-    # Problem 9: Special Pythagorean triplet
+    # Problem 9: Special Pythagorean tripleu
     # Problem 10: Summation of Primes
+    def p10
+      require 'prime'
+      puts "The sum of all the prime numbers up to 2,000,000 is: "
+      puts Prime.each(2_000_000).inject(:+)
+    end
+
     # Problem 11:	Largest product in a grid	
 
     # Problem 12:	Highly divisible triangular number	
