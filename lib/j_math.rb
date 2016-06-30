@@ -3,7 +3,7 @@ require 'prime'
 class JMath
   class << self
     def digits(n)
-      n.to_s.chars.map { |d| d.to_i }
+      n.to_s.chars.map(&:to_i)
     end
 
     def factorial(n)
