@@ -100,7 +100,15 @@ class Euler
            "#{ NumberWords.letter_count(1, 1000) } letters would be used."
     end
 
-    # Problem 18:	Maximum path sum
+    # Problem 18:	Maximum Path Sum I
+    def p18
+      require 'pyramid'
+      require_relative '../test/pyramid_sets.rb'
+      puts "The the maximum sum possible following a path from top to bottom "\
+           "in the given 'pyramid' of numbers is: "\
+           "#{ Pyramid.maximum_path_sum PyramidSets::P2 }"
+    end
+
     # Problem 19:	Counting Sundays
 
     # Problem 20:	Factorial digit sum
@@ -213,6 +221,18 @@ class Euler
     # Problem 49:	Prime permutations
 
     # Problem 50:	Consecutive prime sum
+
+    # Problem 67: Maximum Path Sum II
+    def p67
+      require 'pyramid'
+      require_relative '../test/pyramid_sets.rb'
+      puts "The the maximum sum possible following a path from top to bottom "\
+           "in the given 'pyramid' of numbers is: "\
+           "#{ Pyramid.maximum_path_sum PyramidSets::P3 }"
+    end
+
+
+    # Unsolved Problems
 
     def method_missing(method, *args, &block)
       if method.match /^p\d*$/
