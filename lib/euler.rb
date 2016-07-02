@@ -23,7 +23,6 @@ class Euler
 
     # Problem 5: Smallest Multiple
     def p5
-      require 'j_math'
       puts "The smallest positive number that is evenly divisible by all of the numbers from 1 to 20 is:"
       puts  (1..20).reduce(:lcm)
     end
@@ -62,6 +61,12 @@ class Euler
     end
 
     # Problem 11:	Largest product in a grid	
+    def p11
+      require 'grid'
+      puts "The greatest product of four adjacent numbers (up, down, left, right, "\
+           "or diagonally) in the given grid is: "\
+           "#{ Grid.largest_product }."
+    end
 
     # Problem 12:	Highly divisible triangular number	
     def p12
