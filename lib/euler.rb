@@ -115,6 +115,11 @@ class Euler
     end
 
     # Problem 19:	Counting Sundays
+    def p19
+      require 'sundays'
+      puts "#{ Sundays.firsts_of_months_between("1 Jan 1901", "31 Dec 2000") } "\
+           "occurred in the 20th century."
+    end
 
     # Problem 20:	Factorial digit sum
     def p20
