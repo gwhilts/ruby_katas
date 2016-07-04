@@ -227,6 +227,12 @@ class Euler
     # Problem 47:	Distinct primes factors
 
     # Problem 48:	Self powers
+    def p48
+      sum = (1..1000).reduce { |sum, n| sum += n**n } 
+      puts "The last 10 digits of the sum of the numbers in the series "\
+           "1**1, 2**2, 3**3, ..., 1000**1000 is: "\
+           "#{ sum.to_s.slice(-10, 10) }."
+    end
 
     # Problem 49:	Prime permutations
 
