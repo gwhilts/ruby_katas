@@ -160,7 +160,13 @@ class Euler
 
     # Problem 26:	Reciprocal cycles	
     # Problem 27:	Quadratic primes	
+    
     # Problem 28:	Number spiral diagonals	
+    def p28
+      require 'spiral'
+      s = Spiral.new 1001
+      puts "The sum of the diagonals in 1001 x 1001 table of spiraling numbers is: #{ s.sum_of_diagonals }"
+    end
     
     # Problem 29:	Distinct powers	
     def p29
