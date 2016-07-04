@@ -200,6 +200,11 @@ class Euler
     end
 
     # Problem 36:	Double-base palindromes
+    def p38
+      require 'palindrome_numbers'
+      puts "The sum of all the numbers that are palindromes in both base-10 and base-2 is: "\
+           "#{ PalindromeNumbers.sum_of_double_base_to 1_000_000 }"
+    end
 
     # Problem 37:	Truncatable primes
     def p37

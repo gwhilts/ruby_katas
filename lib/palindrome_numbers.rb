@@ -26,5 +26,14 @@ class PalindromeNumbers
     palindromes.max
   end
 
+  def self.sum_of_double_base_to(limit)
+    sum = 0
+    (1..limit).each do |n|
+      d = n.to_s
+      b = ("%b" % n).to_s
+      sum += n if d == d.reverse && b == b.reverse
+    end
+    sum
+  end
 
 end
