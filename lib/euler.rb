@@ -225,6 +225,22 @@ class Euler
     # Problem 46:	Goldbach's other conjecture
 
     # Problem 47:	Distinct primes factors
+    def four_fours?(n)
+      n.prime_division       == 4 &&
+      (n + 1).prime_division == 4 &&
+      (n + 2).prime_division == 4 &&
+      (n + 3).prime_division == 4
+    end
+
+    def p47
+      n, ans = 2, 0
+      while ans == 0
+        n += 1
+        ans = n if four_fours?(n)
+      end
+      puts "The first of four consecutive numbers that have four prime factors is: "\
+           "#{ ans }."
+    end
 
     # Problem 48:	Self powers
     def p48
