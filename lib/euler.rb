@@ -228,6 +228,14 @@ class Euler
     # Problem 42:	Coded triangle numbers
 
     # Problem 43:	Sub-string divisibility
+    def p43
+      require 'pandigital'
+      p = Pandigital.new
+      puts "Find the sum of all 0 to 9 pandigital numbers with "
+           "substrings divisible by primes (as described in "\
+           "Problem 43) is: "\
+           "#{ p.substring_primes.inject(:+) }."
+    end
 
     # Problem 44:	Pentagon numbers
 
