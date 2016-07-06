@@ -273,6 +273,32 @@ class Euler
 
     # Problem 50:	Consecutive prime sum
 
+    # Problem 52: Permuted Multiples
+    def all_six?(n)
+      require 'j_math'
+      digs = JMath.digits(n)
+      digs == JMath.digits(n*2) &&
+      digs == JMath.digits(n*3) &&
+      digs == JMath.digits(n*4) &&
+      digs == JMath.digits(n*5) &&
+      digs == JMath.digits(n*6)
+    end
+
+    def p52
+      n, answer = 100_00, 0
+      while true
+        n += 1
+        if all_six? n
+          answer = n
+          break
+        end
+      end
+      puts "The smallest positive integer, x, such that "\
+           "2x, 3x, 4x, 5x, and 6x, contain the same "\
+           "digits is: #{ answer }."
+    end
+
+
     # Problem 67: Maximum Path Sum II
     def p67
       require 'pyramid'
