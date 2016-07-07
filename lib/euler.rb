@@ -29,8 +29,10 @@ class Euler
 
     # Problem 6: Sum Square Difference
     def p6
-    puts "The difference between the sum of the squares of the first "\
-         "one hundred natural numbers and the square of the sum is:"
+      ans = ( ((1..100).inject(:+) )**2 ) - ( (1..100).reduce { |sum, n| sum += n**2 } )
+      puts "The difference between the sum of the squares of the first "\
+           "one hundred natural numbers and the square of the sum is: "\
+           "#{ans}."
     end
 
     # Problem 7: 10001st prime
