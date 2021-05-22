@@ -5,24 +5,19 @@ GEM
     builder (3.2.2)
     color_pound_spec_reporter (0.0.5)
     minitest (5.9.0)
-    minitest-osx (0.1.0)
-      minitest (~> 5.4)
-      terminal-notifier (~> 1.6)
     minitest-reporters (1.1.9)
       ansi
       builder
       minitest (>= 5.0)
       ruby-progressbar
     ruby-progressbar (1.8.1)
-    terminal-notifier (1.6.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   color_pound_spec_reporter
-  minitest-osx
   minitest-reporters
 
 BUNDLED WITH
-   1.11.2
+   2.2.17

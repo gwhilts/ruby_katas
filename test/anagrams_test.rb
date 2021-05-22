@@ -6,15 +6,15 @@ describe Anagrams do
   
   describe "#add_words" do
     it "adds words to the anagram dictionary" do
-      ( ags.dict.keys.count ).must_equal 6
+      _( ags.dict.keys.count ).must_equal 6
       ags.add_words %w{ chore ochre atm }
-      ( ags.dict.keys.count ).must_equal 7
+      _( ags.dict.keys.count ).must_equal 7
     end
   end
 
   describe "#find_for" do
     it "finds anagaams for a given word" do
-      ( ags.find_for 'rat' ).must_equal ['art', 'rat', 'tar']
+      _( ags.find_for 'rat' ).must_equal ['art', 'rat', 'tar']
     end
 
     it "deals with accented characters" do

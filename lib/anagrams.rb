@@ -1,3 +1,5 @@
+require 'set'
+
 class Anagrams
   attr_reader :dict
 
